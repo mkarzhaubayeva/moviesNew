@@ -59,6 +59,7 @@ class MoviePage extends StatelessWidget {
                       ],
                     ),
                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
                           ' Genres: \n',
@@ -67,15 +68,14 @@ class MoviePage extends StatelessWidget {
                             fontSize: 19,
                           ),
                         ),
-                        Text(
-                          '${EnumToString.toList(instance.genres).join(', ')}\n',
-                          style: TextStyle(
-                            fontSize: 19,
+                        Container(
+                          width: 160,
+                          child: Text(
+                            '${EnumToString.toList(instance.genres).join(',\n')}\n',
+                            style: TextStyle(
+                              fontSize: 19,
+                            ),
                           ),
-                          textAlign: TextAlign.justify,
-                          maxLines: 3,
-                          softWrap: false,
-                          overflow: TextOverflow.ellipsis,
                         ),
                       ],
                     ),
@@ -86,26 +86,35 @@ class MoviePage extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  ' Description: ',
-                  style: TextStyle(
-                    fontSize: 19,
-                    fontWeight: FontWeight.bold,
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 8),
+                  child: Text(
+                    'Description: ',
+                    style: TextStyle(
+                      fontSize: 19,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
-                Text(
-                  '${instance.description}\n',
-                  style: TextStyle(
-                    fontSize: 19,
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 8),
+                  child: Text(
+                    '${instance.description}\n',
+                    style: TextStyle(
+                      fontSize: 19,
+                    ),
+                    textAlign: TextAlign.justify,
                   ),
-                  textAlign: TextAlign.justify,
                 ),
-                Text(
-                  ' You may also like:',
-                  textAlign: TextAlign.left,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 19,
+                Container(
+                  margin: EdgeInsets.symmetric(horizontal: 8),
+                  child: Text(
+                    'You may also like:',
+                    textAlign: TextAlign.left,
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 19,
+                    ),
                   ),
                 ),
               ],
